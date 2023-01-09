@@ -7,6 +7,11 @@
             "label": "build",
             "type": "shell",
             "command": "zig build"
+        },
+        {
+            "label": "test-build",
+            "type": "shell",
+            "command": "mkdir -p zig-out/bin/ && zig test src/introducing_zig_test.zig -O Debug -femit-bin=zig-out/bin/test-debug"
         }
     ]
 }

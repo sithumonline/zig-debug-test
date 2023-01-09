@@ -5,13 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "zig-debug-test",
+            "name": "zig-debug",
             "type": "lldb",
             "request": "launch",
             "program": "${workspaceFolder}/zig-out/bin/zig-debug-test",
             "args": [],
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "build"
+        },
+        {
+            "name": "zig-test-debug",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/zig-out/bin/test-debug",
+            "args": ["src/introducing_zig_test.zig"],
+            "cwd": "${workspaceFolder}"
         }
     ]
 }
