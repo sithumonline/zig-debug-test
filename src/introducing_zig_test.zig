@@ -1,8 +1,8 @@
 const std = @import("std");
 
-fn main() void {
-    std.debug.print("123", .{});
-}
+// fn main() void {
+//     std.debug.print("123", .{});
+// }
 
 test "expect addOne adds one to 41" {
     std.debug.print("hello world", .{});
@@ -15,6 +15,10 @@ test "expect addOne adds one to 41" {
     var value: i32 = addOne(41);
 
     try std.testing.expect(value == 42);
+}
+
+test "true = true" {
+    try std.testing.expect(false);
 }
 
 /// The function `addOne` adds one to the number given as its argument.

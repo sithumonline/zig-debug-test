@@ -25,10 +25,15 @@ pub fn build(b: *std.build.Builder) void {
     const run_step = b.step("run", "Run the app");
     run_step.dependOn(&run_cmd.step);
 
-    const exe_tests = b.addTest("src/introducing_zig_test.zig");
+    const test_step = b.step("test", "Run unit tests");
+
+    var exe_tests = b.addTest("src/main.zig");
     exe_tests.setTarget(target);
     exe_tests.setBuildMode(mode);
+    test_step.dependOn(&exe_tests.step);
 
-    const test_step = b.step("test", "Run unit tests");
+    exe_tests = b.addTest("src/introducing_zig_test.zig");
+    exe_tests.setTarget(target);
+    exe_tests.setBuildMode(mode);
     test_step.dependOn(&exe_tests.step);
 }

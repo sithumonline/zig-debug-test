@@ -29,3 +29,17 @@ pub fn main() !void {
     const p = Point.init(100, 100);
     p.showPosition();
 }
+
+test "main test" {
+    var value: i32 = add(41);
+
+    try std.testing.expect(value == 42);
+}
+
+test "new test of main" {
+    try std.testing.expect(true);
+}
+
+fn add(number: i32) i32 {
+    return number + 1;
+}
