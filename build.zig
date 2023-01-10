@@ -36,4 +36,9 @@ pub fn build(b: *std.build.Builder) void {
     exe_tests.setTarget(target);
     exe_tests.setBuildMode(mode);
     test_step.dependOn(&exe_tests.step);
+
+    exe_tests = b.addTest("src/new_test.zig");
+    exe_tests.setTarget(target);
+    exe_tests.setBuildMode(mode);
+    test_step.dependOn(&exe_tests.step);
 }
