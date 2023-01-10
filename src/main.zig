@@ -37,7 +37,7 @@ test "main test" {
 }
 
 test "new test of main" {
-    try std.testing.expect(true);
+    try std.testing.expect(false);
 }
 
 fn add(number: i32) i32 {

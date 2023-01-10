@@ -4,14 +4,14 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "zig-debug-build",
             "type": "shell",
             "command": "zig build"
         },
         {
-            "label": "test-build",
+            "label": "zig-debug-test-build",
             "type": "shell",
-            "command": "mkdir -p zig-out/bin/ && zig test src/introducing_zig_test.zig -femit-bin=zig-out/bin/test-debug"
+            "command": "zig build test"
         }
     ]
 }

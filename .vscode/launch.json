@@ -11,14 +11,22 @@
             "program": "${workspaceFolder}/zig-out/bin/zig-debug-test",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "build"
+            "preLaunchTask": "zig-debug-build"
         },
         {
-            "name": "zig-test-debug",
+            "name": "zig-debug-test",
             "type": "lldb",
             "request": "launch",
             "program": "${workspaceFolder}/zig-cache/o/8d3ec5647333441f99255e944dfaad5a/test",
             "args": ["src/main.zig"],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "zig-debug-test-single-file",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/zig-cache/o/a8b449b4d96f0d1ceb1e26c6642a38e7/test",
+            "args": ["src/introducing_zig_test.zig"],
             "cwd": "${workspaceFolder}"
         }
     ]

@@ -1,9 +1,13 @@
 # zig-debug-test
 
-- [ ] 编译的过程怎么理解, program 该怎么配置 ?
-- [ ] 显示 test debug 日志
-- [ ] run all tests use build.zig, how to define build.zig
+this repo support debug zig main app and zig tests.
+
+- run task.json build tasks
+- run launch.json debug runner to debug
 
 
-- zig build test 运行所有 build.zig 中指定的 tests，用于跑整体项目中有依赖的测试
-- zig test 可以用于测试单个没有依赖的 zig 文件中的测试用例
+# please take note
+
+according this link,https://gist.github.com/floooh/31143278a0c0bae4f38b8722a8a98463
+if you use  `zig test src/introducing_zig_test.zig -femit-bin=zig-out/bin/test-debug` to debug, it didn't suscced.
+At least I didn't make it.
