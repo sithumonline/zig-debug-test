@@ -18,7 +18,7 @@ test "expect addOne adds one to 41" {
 }
 
 test "true = true" {
-    try std.testing.expect(false);
+    try std.testing.expect(true);
 }
 
 /// The function `addOne` adds one to the number given as its argument.

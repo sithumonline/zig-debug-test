@@ -17,8 +17,8 @@
             "name": "zig-test-debug",
             "type": "lldb",
             "request": "launch",
-            "program": "${workspaceFolder}/zig-out/bin/zig-debug-test",
-            "args": ["src/introducing_zig_test.zig"],
+            "program": "${workspaceFolder}/zig-cache/o/8d3ec5647333441f99255e944dfaad5a/test",
+            "args": ["src/main.zig"],
             "cwd": "${workspaceFolder}"
         }
     ]
