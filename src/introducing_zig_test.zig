@@ -17,7 +17,12 @@ test "expect addOne adds one to 41" {
     try std.testing.expect(value == 42);
 }
 
-test "true = true" {
+test "true true" {
+    std.log.error("123", .{});
+    try std.testing.expect(true);
+}
+
+test "true false" {
     try std.testing.expect(true);
 }
 
