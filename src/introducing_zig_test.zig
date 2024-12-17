@@ -10,7 +10,7 @@ test "expect addOne adds one to 41" {
     // It will return an error if its argument is false to indicate a failure.
     // `try` is used to return an error to the test runner to notify it that the test failed.
 
-    var value: i32 = addOne(41);
+    const value: i32 = addOne(41);
     try std.testing.expect(value == 42);
 }
 

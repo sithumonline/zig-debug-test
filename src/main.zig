@@ -14,16 +14,16 @@ const Point = struct {
 };
 
 pub fn main() !void {
-    var a: i32 = 13;
+    const a: i32 = 13;
     std.debug.print("the value a = {}\n", .{a});
 
-    var name: []const u8 = "123";
+    const name: []const u8 = "123";
     std.debug.print("name = {s}\n", .{name});
 
-    var b: i32 = 13;
+    const b: i32 = 13;
     std.debug.print("the value b = {}\n", .{b});
 
-    var sex: bool = true;
+    const sex: bool = true;
     std.debug.print("is main = {}\n", .{sex});
 
     const p = Point.init(100, 100);
@@ -31,7 +31,7 @@ pub fn main() !void {
 }
 
 test "main test" {
-    var value: i32 = add(41);
+    const value: i32 = add(41);
 
     try std.testing.expect(value == 42);
 }

@@ -1,6 +1,6 @@
 const std = @import("std");
 
-pub fn build(b: *std.build.Builder) void {
+pub fn build(b: *std.Build) void {
     // Standard target options allows the person running `zig build` to choose
     // what target to build for. Here we do not override the defaults, which
     // means any target is allowed, and the default is native. Other options
@@ -11,17 +11,10 @@ pub fn build(b: *std.build.Builder) void {
     // between Debug, ReleaseSafe, ReleaseFast, and ReleaseSmall.
     const optimize = b.standardOptimizeOption(.{});
 
-    const exe = b.addExecutable(std.Build.ExecutableOptions{
-        .name = "zig-debug-test",
-        .target = target,
-        .optimize = optimize,
-        .root_source_file = .{
-            .path = "src/main.zig",
-        },
-    });
-    exe.install();
+    const exe = b.addExecutable(std.Build.ExecutableOptions{ .name = "zig-debug-test", .target = target, .optimize = optimize, .root_source_file = b.path("src/main.zig") });
+    b.installArtifact(exe);
 
-    const run_cmd = exe.run();
+    const run_cmd = b.addRunArtifact(exe);
     run_cmd.step.dependOn(b.getInstallStep());
     if (b.args) |args| {
         run_cmd.addArgs(args);
@@ -34,9 +27,7 @@ pub fn build(b: *std.build.Builder) void {
 
     var exe_tests = b.addTest(std.Build.TestOptions{
         .name = "main-test",
-        .root_source_file = .{
-            .path = "src/main.zig",
-        },
+        .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
     });
@@ -44,9 +35,7 @@ pub fn build(b: *std.build.Builder) void {
 
     exe_tests = b.addTest(std.Build.TestOptions{
         .name = "introducing_zig",
-        .root_source_file = .{
-            .path = "src/introducing_zig.zig",
-        },
+        .root_source_file = b.path("src/introducing_zig.zig"),
         .target = target,
         .optimize = optimize,
     });
@@ -54,9 +43,7 @@ pub fn build(b: *std.build.Builder) void {
 
     exe_tests = b.addTest(std.Build.TestOptions{
         .name = "new_test",
-        .root_source_file = .{
-            .path = "src/new_test.zig",
-        },
+        .root_source_file = b.path("src/new_test.zig"),
         .target = target,
         .optimize = optimize,
     });
